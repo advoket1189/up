@@ -1,0 +1,91 @@
+{% load staticfiles %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+    {% if title %}
+    <title>Ship East | {{ title }}</title>
+    {% else %}
+        <title>Ship East</title>
+    {% endif %}
+
+<!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+<!-- Stylesheets -->
+<link href="{% static 'css/style.css' %}" rel="stylesheet" id="bootstrap-css">
+<link href="{% static 'css/dash.css' %}" rel="stylesheet" id="bootstrap-css">
+<link href="{% static 'css/login.css' %}" rel="stylesheet" id="bootstrap-css">
+<!-- Slick Carousel -->
+  <link href="{% static 'plugins/slick/slick.css' %}" rel="stylesheet">
+  <link href="{% static 'plugins/slick/slick-theme.css' %}" rel="stylesheet">
+<!-- FancyBox -->
+    <link href="{% static 'plugins/fancybox/jquery.fancybox.min.css' %}" rel="stylesheet">
+
+<!-- CDN -->
+
+<link href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/animate.min.css" rel="stylesheet" />
+
+
+
+{% block head %}
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
+{% endblock %}
+</head>
+
+
+
+  <body>
+{% include 'navbar.html' %}
+{% if messages %}
+    {% for messages in messages %}
+       <div class="alert-{{ messages.tags }}">
+       {{ messages }}
+       </div>
+    {% endfor %}
+{% endif %}
+{% block carousel %}{% endblock %}
+  {% block content %}{% endblock %}
+
+{% include 'footer.html' %}
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+
+    <script src="{% static 'plugins/jquery.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap.min.js' %}"></script>
+     <script src="{% static 'plugins/bootstrap-select.min.js' %}"></script>
+    <!-- Slick Slider -->
+    <script src="{% static 'plugins/slick/slick.min.js' %}"></script>
+    <!-- FancyBox -->
+  <script src="{% static 'plugins/fancybox/jquery.fancybox.min.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+  <script src="{% static 'plugins/google-map/gmap.js' %}"></script>
+
+  <script src="{% static 'plugins/validate.js' %}"></script>
+  <script src="{% static 'plugins/wow.js' %}"></script>
+  <script src="{% static 'plugins/jquery-ui.js' %}"></script>
+  <script src="{% static 'plugins/timePicker.js' %}"></script>
+  <script src="{% static 'javascript/script.js' %}"></script>
+  </body>
+
+</html>
